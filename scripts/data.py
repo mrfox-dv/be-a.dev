@@ -11,31 +11,27 @@ def merge_domain_files():
     # Ensure the data directory exists
     output_file.parent.mkdir(exist_ok=True)
 
-    # Initialize an empty list to store all records
-    all_records = []
+    # Initialize a dictionary to store records by filename
+    records_by_file = {}
 
     # Read and process all JSON files in the domains directory
     for json_file in domains_dir.glob('*.json'):
         try:
             with open(json_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                # If the file contains a list, extend all_records
-                if isinstance(data, list):
-                    all_records.extend(data)
-                # If it's a single record, append it
-                else:
-                    all_records.append(data)
+                # Store the data with filename as key
+                records_by_file[json_file.name] = data
         except Exception as e:
             print(f"Error processing {json_file.name}: {str(e)}")
 
-    # Sort records to ensure consistent output
-    all_records.sort(key=lambda x: str(x))
+    # Sort the dictionary by keys to ensure consistent output
+    records_by_file = dict(sorted(records_by_file.items()))
 
     # Write the combined records to the output file
     with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(all_records, f, ensure_ascii=False, indent=2)
+        json.dump(records_by_file, f, ensure_ascii=False, indent=2)
 
-    print(f"Successfully merged {len(all_records)} records into {output_file}")
+    print(f"Successfully merged {len(records_by_file)} files into {output_file}")
 
 if __name__ == "__main__":
     merge_domain_files() 
