@@ -1,10 +1,10 @@
 {
-  "owner": {
-    "username": "shenmeshi33",
-    "email": "shenmimln@gmail.com"
-  },
-  "record": {
-    "CNAME": "nav-c9e.pages.dev"
-  },
-  "proxied": true
+    "owner": {
+        "email": "shenmimln@gmail.com",
+        "username": "shenmeshi33"
+    },
+    "proxied": true,
+    "record": {
+        "CNAME": "nav-c9e.pages.dev"
+    }
 }

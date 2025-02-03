@@ -1,10 +1,10 @@
 {
-  "owner": {
-    "username": "lck68",
-    "email": "xsh0458@gmail.com"
-  },
-  "record": {
-    "CNAME": "b.icxk.cn"
-  },
-  "proxied": true
+    "owner": {
+        "email": "xsh0458@gmail.com",
+        "username": "lck68"
+    },
+    "proxied": true,
+    "record": {
+        "CNAME": "b.icxk.cn"
+    }
 }
