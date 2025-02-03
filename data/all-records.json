@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "description": "k.is-a.dev",
+    "owner": {
+      "email": "888qopo@gmail.com",
+      "username": "Lxi0707"
+    },
+    "proxied": true,
+    "record": {
+      "A": [
+        "188.68.240.160"
+      ]
+    }
+  },
+  {
+    "owner": {
+      "email": "robot042@outlook.com",
+      "username": "LINKLang"
+    },
+    "record": {
+      "URL": "https://emby.robot042.com"
+    }
+  },
+  {
+    "owner": {
+      "email": "shenmimln@gmail.com",
+      "username": "shenmeshi33"
+    },
+    "proxied": true,
+    "record": {
+      "CNAME": "nav-c9e.pages.dev"
+    }
+  },
+  {
+    "owner": {
+      "email": "xsh0458@gmail.com",
+      "username": "lck68"
+    },
+    "proxied": true,
+    "record": {
+      "CNAME": "b.icxk.cn"
+    }
+  }
+]
