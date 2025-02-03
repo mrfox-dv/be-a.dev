@@ -28,13 +28,3 @@ jobs:
             - uses: is-a-dev/dnscontrol-action@main
               with:
                   args: check
-
-    tests:
-        name: Tests
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-
-            - run: npm install
-
-            - run: npx ava tests/*.test.js

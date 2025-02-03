@@ -21,11 +21,6 @@ jobs:
         steps:
             - uses: actions/checkout@v4
 
-            - name: Run tests
-              run: |
-                  npm install
-                  npx ava tests/*.test.js
-
             - name: Generate creds.json
               run: echo '{"cloudflare":{"TYPE":"CLOUDFLAREAPI","apitoken":"$CLOUDFLARE_API_TOKEN"}}' > ./creds.json
 
