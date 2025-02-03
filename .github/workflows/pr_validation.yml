@@ -1,0 +1,121 @@
+name: PR Validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+    paths:
+      - 'domains/*.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install @actions/github @actions/core fs path
+
+      - name: Validate PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            // Read reserved domains
+            const reservedDomains = JSON.parse(fs.readFileSync('./utils/reserved.json', 'utf8'));
+            
+            // Get changed files in the PR
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            
+            const domainFiles = files.filter(file => 
+              file.filename.startsWith('domains/') && 
+              file.filename.endsWith('.json')
+            );
+            
+            // Validation functions
+            const isReservedDomain = (filename) => {
+              const baseName = path.basename(filename, '.json');
+              return reservedDomains.includes(baseName);
+            };
+            
+            const isValidFilename = (filename) => {
+              const baseName = path.basename(filename);
+              
+              // Check various invalid conditions
+              if (baseName.length <= 5) return false; // ".json" is 5 chars
+              if (baseName.toUpperCase() !== baseName.toLowerCase()) return false; // contains uppercase
+              if (baseName.includes('..')) return false; // consecutive dots
+              if (baseName.startsWith('.')) return false; // starts with dot
+              if (baseName.includes(' ')) return false; // contains space
+              if (!/^[a-z0-9.]+\.json$/.test(baseName)) return false; // non-alphanumeric chars
+              if ((baseName.match(/\.json/g) || []).length > 1) return false; // multiple .json
+              if (baseName.includes('.be-a.dev')) return false; // contains .be-a.dev
+              
+              return true;
+            };
+
+            const addFailureComment = async (reason) => {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: "Unfortunately, this request is invalid. Please read our documentation before submitting again.\nThis review is automated. A failed review indicates that you have made some basic errors.\nIf you believe this decision is incorrect, please contact us.\nReason for rejection: " + reason
+              });
+            };
+            
+            // Check each file
+            for (const file of domainFiles) {
+              if (isReservedDomain(file.filename)) {
+                await addFailureComment(`Domain name '${path.basename(file.filename, '.json')}' is reserved`);
+                
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  labels: ['auto close: reserved domain name']
+                });
+                
+                await github.rest.pulls.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: context.issue.number,
+                  state: 'closed'
+                });
+                
+                core.setFailed(`${file.filename} is a reserved domain name`);
+                return;
+              }
+              
+              if (!isValidFilename(file.filename)) {
+                await addFailureComment(`Filename '${file.filename}' is invalid`);
+                
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  labels: ['auto close: invalid filename']
+                });
+                
+                await github.rest.pulls.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: context.issue.number,
+                  state: 'closed'
+                });
+                
+                core.setFailed(`${file.filename} has an invalid filename format`);
+                return;
+              }
+            }
