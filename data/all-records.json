@@ -1,5 +1,67 @@
-[
-  {
+{
+  "a.json": {
+    "owner": {
+      "email": "robot042@outlook.com",
+      "username": "LINKLang"
+    },
+    "record": {
+      "URL": "https://emby.robot042.com"
+    }
+  },
+  "alix.json": {
+    "owner": {
+      "email": "shenmimln@gmail.com",
+      "username": "shenmeshi33"
+    },
+    "proxied": true,
+    "record": {
+      "CNAME": "nav-c9e.pages.dev"
+    }
+  },
+  "b.json": {
+    "owner": {
+      "email": "xsh0458@gmail.com",
+      "username": "lck68"
+    },
+    "proxied": true,
+    "record": {
+      "CNAME": "b.icxk.cn"
+    }
+  },
+  "c.json": {
+    "owner": {
+      "email": "shenmimln@gmail.com",
+      "username": "shenmeshi33"
+    },
+    "proxied": true,
+    "record": {
+      "CNAME": "nav-c9e.pages.dev"
+    }
+  },
+  "coolapk.json": {
+    "description": "This domain is not, in any way, affiliated to 深圳酷安网络科技有限公司 (coolapk.com) and its related services.",
+    "owner": {
+      "email": "wangpy01@outlook.com",
+      "username": "SkymontVibe"
+    },
+    "proxied": true,
+    "record": {
+      "A": [
+        "121.54.189.216"
+      ]
+    }
+  },
+  "d.json": {
+    "owner": {
+      "email": "DongDong741236@outlook.com",
+      "username": "dong"
+    },
+    "proxied": true,
+    "record": {
+      "CNAME": "itdong.me"
+    }
+  },
+  "k.json": {
     "description": "k.is-a.dev",
     "owner": {
       "email": "888qopo@gmail.com",
@@ -11,44 +73,5 @@
         "188.68.240.160"
       ]
     }
-  },
-  {
-    "owner": {
-      "email": "robot042@outlook.com",
-      "username": "LINKLang"
-    },
-    "record": {
-      "URL": "https://emby.robot042.com"
-    }
-  },
-  {
-    "owner": {
-      "email": "shenmimln@gmail.com",
-      "username": "shenmeshi33"
-    },
-    "proxied": true,
-    "record": {
-      "CNAME": "nav-c9e.pages.dev"
-    }
-  },
-  {
-    "owner": {
-      "email": "shenmimln@gmail.com",
-      "username": "shenmeshi33"
-    },
-    "proxied": true,
-    "record": {
-      "CNAME": "nav-c9e.pages.dev"
-    }
-  },
-  {
-    "owner": {
-      "email": "xsh0458@gmail.com",
-      "username": "lck68"
-    },
-    "proxied": true,
-    "record": {
-      "CNAME": "b.icxk.cn"
-    }
   }
-]
+}
