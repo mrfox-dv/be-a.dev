@@ -1,0 +1,10 @@
+{
+    "owner": {
+        "email": "DongDong741236@outlook.com",
+        "username": "dong"
+    },
+    "proxied": true,
+    "record": {
+        "CNAME": "itdong.me"
+    }
+}
