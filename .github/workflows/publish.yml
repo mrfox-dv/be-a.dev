@@ -3,10 +3,6 @@ name: Publish
 on:
     push:
         branches: [main]
-        paths:
-            - "domains/*"
-            - ".github/workflows/publish.yml"
-            - "dnsconfig.js"
 
     workflow_dispatch:
 
