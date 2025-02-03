@@ -1,0 +1,10 @@
+{
+    "owner": {
+        "email": "yiyu5143@gmail.com",
+        "username": "joey-foo"
+    },
+    "proxied": true,
+    "record": {
+      "CNAME": "github-joey-foo.github.io"
+    }
+}
