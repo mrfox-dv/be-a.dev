@@ -1,11 +1,13 @@
 {
-  "description": "Documentation website for wyz.be-a.dev",
-  "owner": {
-    "username": "wyz",
-    "email": "wyz@kun.edu.cn"
-  },
-  "record": {
-    "A": ["1.94.32.79"]
-  },
-  "proxied": true
+    "description": "Documentation website for wyz.be-a.dev",
+    "owner": {
+        "email": "wyz@kun.edu.cn",
+        "username": "wyz"
+    },
+    "proxied": true,
+    "record": {
+        "A": [
+            "1.94.32.79"
+        ]
+    }
 }
