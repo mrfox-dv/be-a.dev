@@ -27,7 +27,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request_target' }}
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr comment ${{ github.event.issue.html_url }} --body "This PR will be closed due to being marked as invalid either automatically or manually."
+        run: gh pr comment ${{ github.event.pull_request.html_url }} --body "This PR will be closed due to being marked as invalid either automatically or manually."
 
       - name: Close issue
         if: ${{ github.event_name == 'issues' }}
