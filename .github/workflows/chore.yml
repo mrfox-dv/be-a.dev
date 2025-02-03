@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  Format:
+  Chore:
     runs-on: ubuntu-latest
     
     steps:
@@ -13,11 +13,7 @@ jobs:
     
     - name: Run format script
       run: python3 scripts/format.py
-
-  Update_Data:
-    runs-on: ubuntu-latest
-
-    steps:      
+    
     - name: Run data merge script
       run: python3 scripts/data.py
       
@@ -26,5 +22,5 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add data/all-records.json
-        git commit -m "chore: Update all-records.json" || echo "No changes to commit"
+        git commit -m "chore: Update(GitHub Action: chore.yml)" || echo "No changes to commit"
         git push
