@@ -25,7 +25,7 @@ jobs:
       - run: gh pr edit ${{ github.event.pull_request.html_url }} --add-label "invalid"
 
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.PAT }}
 
   Mark_as_Valid:
     name: Mark PR as Valid
@@ -39,4 +39,4 @@ jobs:
       - run: gh pr edit ${{ github.event.pull_request.html_url }} --add-label "validation passed"
 
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.PAT }}
