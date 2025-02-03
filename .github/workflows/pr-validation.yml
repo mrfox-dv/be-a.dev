@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: gh pr comment ${{ github.event.pull_request.html_url }} --body "This PR will be closed due to failing validation."
-      - run: gh pr close ${{ github.event.pull_request.html_url }}
+      - run: gh pr edit ${{ github.event.pull_request.html_url }} --add-label "invalid"
 
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
