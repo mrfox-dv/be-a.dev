@@ -2,6 +2,9 @@ name: Pull Request Labeler
 on:
   schedule:
     - cron: '*/10 * * * *'
+  pull_request:
+    types:
+      - opened
 jobs:
   labeler:
     runs-on: ubuntu-latest
