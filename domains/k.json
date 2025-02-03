@@ -1,12 +1,13 @@
 {
-  "description": "k.is-a.dev",
-  "owner": {
-    "username": "Lxi0707",
-    "email": "888qopo@gmail.com"
-  },
-  "record": {
-    "A": [
-      "188.68.240.160"
-    ]
-  },"proxied": true
+    "description": "k.is-a.dev",
+    "owner": {
+        "email": "888qopo@gmail.com",
+        "username": "Lxi0707"
+    },
+    "proxied": true,
+    "record": {
+        "A": [
+            "188.68.240.160"
+        ]
+    }
 }
