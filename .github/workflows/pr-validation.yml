@@ -15,7 +15,7 @@ jobs:
   Close_PR:
     name: Close PR
     needs: Validation
-    if: ${{ needs.Validation.result == 'failure' }}
+    if: failure()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
