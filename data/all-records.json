@@ -33,6 +33,16 @@
   },
   {
     "owner": {
+      "email": "shenmimln@gmail.com",
+      "username": "shenmeshi33"
+    },
+    "proxied": true,
+    "record": {
+      "CNAME": "nav-c9e.pages.dev"
+    }
+  },
+  {
+    "owner": {
       "email": "xsh0458@gmail.com",
       "username": "lck68"
     },
