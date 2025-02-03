@@ -13,6 +13,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Enable auto-merge
-        run: gh pr merge ${{ github.event.pull_request.html_url }} --auto --merge
+        run: gh pr merge ${{ github.event.pull_request.html_url }} --auto --squash --subject "Merge pull request(#${{ github.event.pull_request.number }})" --body "Auto merge after validation is passed."
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
