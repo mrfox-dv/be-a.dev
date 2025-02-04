@@ -28,16 +28,6 @@
       "CNAME": "b.icxk.cn"
     }
   },
-  "c.json": {
-    "owner": {
-      "email": "shenmimln@gmail.com",
-      "username": "shenmeshi33"
-    },
-    "proxied": true,
-    "record": {
-      "CNAME": "nav-c9e.pages.dev"
-    }
-  },
   "coolapk.json": {
     "description": "This domain is not, in any way, affiliated to 深圳酷安网络科技有限公司 (coolapk.com) and its related services.",
     "owner": {
