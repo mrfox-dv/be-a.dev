@@ -5,6 +5,6 @@
     },
     "proxied": true,
     "record": {
-      "CNAME": "github-joey-foo.github.io"
+        "CNAME": "github-joey-foo.github.io"
     }
 }
