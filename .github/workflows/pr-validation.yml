@@ -36,6 +36,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - run: gh pr merge ${{ github.event.pull_request.html_url }} --auto --squash --subject "Merge pull request(#${{ github.event.pull_request.number }})" --body "Auto merge after validation is passed."
       - run: gh pr edit ${{ github.event.pull_request.html_url }} --add-label "validation passed"
 
     env:
